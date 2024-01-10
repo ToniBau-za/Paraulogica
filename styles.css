@@ -47,7 +47,9 @@ body {
 .slot.green {
     background-color: #4caf50;
 }
-
+.slot.yellow {
+    background-color: #c5b025;
+}
 .panel-title {
     text-align: center;
     padding: 10px;
