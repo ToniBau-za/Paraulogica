@@ -10,8 +10,14 @@ function BotonEscribir(){
     }else{
         // NuevaEntrada='<div>' + value + '</div>'
         for (let i=0;i<5;i++){
+
             if (word.charAt(i)){
-                document.getElementById('letra0').innerText=word
+                document.getElementById('letra0').innerText=word.charAt(i-4)
+                document.getElementById('letra1').innerText=word.charAt(i-3)
+                document.getElementById('letra2').innerText=word.charAt(i-2)
+                document.getElementById('letra3').innerText=word.charAt(i-1)
+                document.getElementById('letra4').innerText=word.charAt(i)
+
 
 
             }
