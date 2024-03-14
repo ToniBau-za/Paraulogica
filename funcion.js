@@ -9,6 +9,7 @@ function BotonEscribir(){
         window.alert('Una palabra de 5 letras debe ser')
         document.getElementById('escribirpalabra').value=''
 
+        //si la palabra es igual a la secreta
     }else if (word.toUpperCase()==secreta){
         let espacio="<div class='resposta'>"
         for (let i=0;i<secreta.length;i++){
@@ -20,6 +21,7 @@ function BotonEscribir(){
         espacio+= '</div>'
         document.getElementById('respuesta').innerHTML+= espacio + '<br>'
 
+
     }else{
         let texto= "<div class='resposta'>"
         for (let i=0;i<word.length;i++) {
@@ -27,9 +29,11 @@ function BotonEscribir(){
             if (word.toUpperCase().charAt(i)==secreta.charAt(i)){
                 texto += "<div class='slot green'>"
 
-            }else if (word.toUpperCase().charAt(i).includes(secreta.charAt(i)) == true) {
+                //detecta si alguna letra pertenece a la secreta
+            }else if (secreta.includes(word.toUpperCase().charAt(i)) == true) {
                 texto += "<div class='slot yellow'>"
 
+                //si la letra no aparece en la palabra secreta
             }else{
                 texto += "<div class='slot'>"
             }
@@ -38,9 +42,4 @@ function BotonEscribir(){
         }
         document.getElementById('respuesta').innerHTML += texto + '<br>'
     }
-
-
-
-
-
 }
