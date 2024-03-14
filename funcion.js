@@ -4,19 +4,19 @@ let secreta=(listasecreta[Math.trunc(Math.random()*listasecreta.length)])
 
 function BotonEscribir(){
     let word= document.getElementById('escribirpalabra').value;
-
+    document.getElementById('escribirpalabra').value=''
     //controla si alguna palabra supera el limite de 5 letras
     if (word.length!=5){
         window.alert('Una palabra de 5 letras debe ser')
-        document.getElementById('escribirpalabra').value=''
+
 
         //si la palabra es igual a la secreta
     }else if (word.toUpperCase()==secreta){
         let espacio="<div class='resposta'>"
         for (let i=0;i<secreta.length;i++){
             espacio += "<div class='slot green'>"
-            espacio+= secreta.toUpperCase().charAt(i)
-            espacio+="</div>"
+            espacio += secreta.toUpperCase().charAt(i)
+            espacio +="</div>"
 
         }
         espacio+= '</div>'
@@ -52,4 +52,5 @@ function Reinicio(){
     document.getElementById('Reiniciar').hidden=true
     document.getElementById('respuesta').innerHTML=''
     document.getElementById('escribirpalabra').innerText=''
+    secreta=(listasecreta[Math.trunc(Math.random()*listasecreta.length)])
 }
