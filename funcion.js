@@ -1,5 +1,6 @@
 //La palabra secreta
-const secreta='PANEL'
+let listasecreta=['PANEL','CLAVO','CHILE','GAFAS','HIELO','JAPON','MENOS','OBRAS','PELEA','QUEMA','RELOJ','LUNAR','SOLAR','SAPOS']
+let secreta=(listasecreta[Math.trunc(Math.random()*listasecreta.length)])
 
 function BotonEscribir(){
     let word= document.getElementById('escribirpalabra').value;
@@ -19,27 +20,36 @@ function BotonEscribir(){
 
         }
         espacio+= '</div>'
-        document.getElementById('respuesta').innerHTML+= espacio + '<br>'
 
+        document.getElementById('respuesta').innerHTML+= espacio + '<br>'
+        window.alert('Felicidades, has adivinado la palabra!')
+        document.getElementById('Reiniciar').hidden=false
 
     }else{
-        let texto= "<div class='resposta'>"
+        let espaciocomprobador= "<div class='resposta'>"
         for (let i=0;i<word.length;i++) {
             //detecta si alguna letra es la misma y que esta en la posicion adequada de la palabra secreta
             if (word.toUpperCase().charAt(i)==secreta.charAt(i)){
-                texto += "<div class='slot green'>"
+                espaciocomprobador += "<div class='slot green'>"
 
                 //detecta si alguna letra pertenece a la secreta
             }else if (secreta.includes(word.toUpperCase().charAt(i)) == true) {
-                texto += "<div class='slot yellow'>"
+                espaciocomprobador += "<div class='slot yellow'>"
 
                 //si la letra no aparece en la palabra secreta
             }else{
-                texto += "<div class='slot'>"
+                espaciocomprobador += "<div class='slot'>"
             }
-            texto += word.toUpperCase().charAt(i)
-            texto += '</div>'
+            espaciocomprobador += word.toUpperCase().charAt(i)
+            espaciocomprobador += '</div>'
         }
-        document.getElementById('respuesta').innerHTML += texto + '<br>'
+        document.getElementById('respuesta').innerHTML += espaciocomprobador + '<br>'
+
     }
+}
+
+function Reinicio(){
+    document.getElementById('Reiniciar').hidden=true
+    document.getElementById('respuesta').innerHTML=''
+    document.getElementById('escribirpalabra').innerText=''
 }
